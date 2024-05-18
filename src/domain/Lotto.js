@@ -1,3 +1,5 @@
+import { getRandomNumber } from "../utils/index";
+
 import * as ERROR_MESSAGE from "../constants/error";
 
 export default class Lotto {
@@ -31,5 +33,27 @@ export default class Lotto {
     }
 
     this.#numbers = numbers;
+  }
+
+  static getRandomNumbers(size) {
+    const numbers = [];
+
+    if (!Number.isInteger(size)) {
+      throw new TypeError(ERROR_MESSAGE.RANDOM_NUMBER_TYPE_ERROR);
+    }
+
+    if (size <= 0) {
+      throw new RangeError(ERROR_MESSAGE.RANDOM_NUMBER_SIZE_RANGE_ERROR);
+    }
+
+    while (numbers.length < size) {
+      const number = getRandomNumber(this.MIN_NUMBER, this.MAX_NUMBER);
+
+      if (!numbers.includes(number)) {
+        numbers.push(number);
+      }
+    }
+
+    return numbers;
   }
 }
