@@ -13,3 +13,6 @@ export const RANDOM_NUMBER_SIZE_RANGE_ERROR =
 
 export const MONEY_TYPE_ERROR = "Input should be an integer";
 export const MONEY_RANGE_ERROR = "Input should be a positive integer";
+
+export const TICKET_QUANTITY_TYPE_ERROR = "Input should be an integer";
+export const TICKET_QUANTITY_RANGE_ERROR = "Input should be a positive integer";
