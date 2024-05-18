@@ -5,14 +5,6 @@ import * as ERROR_MESSAGE from "../constants/error";
 export default class Lotto {
   static MIN_NUMBER = 1;
   static MAX_NUMBER = 45;
-  static PRIZES = {
-    1: 2000000000,
-    2: 30000000,
-    3: 1500000,
-    4: 50000,
-    5: 5000,
-    "-1": 0,
-  };
   #numbers;
 
   constructor(numbers) {
@@ -84,18 +76,6 @@ export default class Lotto {
       }
     }
 
-    if (duplicates.size === 6) {
-      return 1;
-    } else if (duplicates.size === 5 && thisTicketSet.has(bonusNumber)) {
-      return 2;
-    } else if (duplicates.size === 5) {
-      return 3;
-    } else if (duplicates.size === 4) {
-      return 4;
-    } else if (duplicates.size === 3) {
-      return 5;
-    }
-
-    return -1;
+    return duplicates.size + 100 * !!thisTicketSet.has(bonusNumber);
   }
 }
