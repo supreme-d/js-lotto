@@ -8,3 +8,5 @@ export const LOTTO_NUMBER_LENGTH_ERROR = "Lotto numbers should be six";
 export const RANDOM_NUMBER_TYPE_ERROR = "Input should be an integer";
 export const RANDOM_NUMBER_RANGE_ERROR =
   "min value should be lower than max value";
+export const RANDOM_NUMBER_SIZE_RANGE_ERROR =
+  "Size should be a positive integer";
