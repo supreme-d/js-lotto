@@ -78,4 +78,16 @@ export default class Lotto {
 
     return duplicates.size + 100 * !!thisTicketSet.has(bonusNumber);
   }
+
+  static getPrize(score) {
+    const PRIZES = new Map([
+      [6, { condition: "6개 일치", prize: 2000000000 }],
+      [105, { condition: "5개 일치, 보너스 볼 일치", prize: 30000000 }],
+      [5, { condition: "5개 일치", prize: 1500000 }],
+      [4, { condition: "4개 일치", prize: 50000 }],
+      [3, { condition: "3개 일치", prize: 5000 }],
+    ]);
+
+    return PRIZES.get(score);
+  }
 }
