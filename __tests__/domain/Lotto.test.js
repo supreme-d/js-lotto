@@ -70,4 +70,44 @@ describe("Lotto", () => {
       expect(numbers.length).toBe(size);
     });
   });
+
+  describe("checkResult()", () => {
+    it("should return 5 when ticket has three matching numbers", () => {
+      const winningNumbers = [1, 2, 3, 4, 5, 6];
+      const bonusNumber = 10;
+      const ticket = new Lotto([4, 5, 6, 14, 15, 16]);
+
+      const result = ticket.checkResult(winningNumbers, bonusNumber);
+
+      expect(result).toBe(5);
+    });
+
+    it("should return 2 when ticket has give matching numbers including the bonus number", () => {
+      const winningNumbers = [1, 2, 3, 4, 5, 6];
+      const bonusNumber = 10;
+      const ticket = new Lotto([1, 2, 3, 4, 5, 10]);
+
+      const result = ticket.checkResult(winningNumbers, bonusNumber);
+
+      expect(result).toBe(2);
+    });
+
+    it("should return -1 when ticket has no matching numbers", () => {
+      const winningNumbers = [1, 2, 3, 4, 5, 6];
+      const bonusNumber = 10;
+      const ticket = new Lotto([11, 12, 13, 14, 15, 16]);
+
+      const result = ticket.checkResult(winningNumbers, bonusNumber);
+
+      expect(result).toBe(-1);
+    });
+
+    it("should throw an error if any input is missing", () => {
+      const ticket = new Lotto([11, 12, 13, 14, 15, 16]);
+
+      expect(() => ticket.checkResult()).toThrow(
+        ERROR_MESSAGE.INPUT_INVALID_ERROR
+      );
+    });
+  });
 });
