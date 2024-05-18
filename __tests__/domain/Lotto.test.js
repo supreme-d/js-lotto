@@ -110,4 +110,22 @@ describe("Lotto", () => {
       );
     });
   });
+
+  describe("getPrize()", () => {
+    it("should return matching prize when score matches a prize condition", () => {
+      const score = 6;
+
+      const prize = Lotto.getPrize(score);
+
+      expect(prize).toStrictEqual({ condition: "6개 일치", prize: 2000000000 });
+    });
+
+    it("should return undefined when no prize matches the score", () => {
+      const score = 1;
+
+      const prize = Lotto.getPrize(score);
+
+      expect(prize).toBe(undefined);
+    });
+  });
 });
