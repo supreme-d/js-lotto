@@ -10,3 +10,6 @@ export const RANDOM_NUMBER_RANGE_ERROR =
   "min value should be lower than max value";
 export const RANDOM_NUMBER_SIZE_RANGE_ERROR =
   "Size should be a positive integer";
+
+export const MONEY_TYPE_ERROR = "Input should be an integer";
+export const MONEY_RANGE_ERROR = "Input should be a positive integer";
