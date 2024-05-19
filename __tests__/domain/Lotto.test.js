@@ -109,6 +109,16 @@ describe("Lotto", () => {
         ERROR_MESSAGE.INPUT_INVALID_ERROR
       );
     });
+
+    it("should throw an error if any duplicate exists between winningNumbers and bonusNumber", () => {
+      const winningNumbers = [1, 2, 3, 4, 5, 6];
+      const bonusNumber = 6;
+      const ticket = new Lotto([11, 12, 13, 14, 15, 16]);
+
+      expect(() => ticket.checkResult(winningNumbers, bonusNumber)).toThrow(
+        ERROR_MESSAGE.INPUT_INVALID_ERROR
+      );
+    });
   });
 
   describe("getPrize()", () => {
