@@ -62,11 +62,16 @@ export default class Lotto {
   }
 
   checkResult(winningNumbers, bonusNumber) {
+    const winningNumberSet = new Set(winningNumbers);
+
     if (!winningNumbers || !bonusNumber) {
       throw new Error(ERROR_MESSAGE.INPUT_INVALID_ERROR);
     }
 
-    const winningNumberSet = new Set(winningNumbers);
+    if (winningNumberSet.has(bonusNumber)) {
+      throw new Error(ERROR_MESSAGE.INPUT_INVALID_ERROR);
+    }
+
     const thisTicketSet = new Set(this.#numbers);
     const duplicates = new Set();
 
