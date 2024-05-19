@@ -54,7 +54,7 @@ export default class Lotto {
       }
     }
 
-    return numbers;
+    return numbers.sort((a, b) => a - b);
   }
 
   getNumbers() {
