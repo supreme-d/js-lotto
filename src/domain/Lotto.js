@@ -61,7 +61,7 @@ export default class Lotto {
     return this.#numbers;
   }
 
-  checkResult(winningNumbers, bonusNumber) {
+  static checkResult(myNumbers, winningNumbers, bonusNumber) {
     const winningNumberSet = new Set(winningNumbers);
 
     if (!winningNumbers || !bonusNumber) {
@@ -72,7 +72,7 @@ export default class Lotto {
       throw new Error(ERROR_MESSAGE.INPUT_INVALID_ERROR);
     }
 
-    const thisTicketSet = new Set(this.#numbers);
+    const thisTicketSet = new Set(myNumbers);
     const duplicates = new Set();
 
     for (const element of thisTicketSet) {
