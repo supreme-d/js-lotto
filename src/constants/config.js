@@ -1,6 +1,7 @@
 const CONFIG = {
   MIN_LOTTO_NUMBER: 1,
   MAX_LOTTO_NUMBER: 45,
+  LOTTO_UNIT_PRICE: 1000,
 };
 
 export default CONFIG;

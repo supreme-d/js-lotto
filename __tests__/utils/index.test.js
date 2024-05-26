@@ -27,3 +27,7 @@ describe("랜덤 번호 생성", () => {
     expect(() => getRandomNumber(min, max)).toThrow(ERROR_MESSAGE.NOT_AN_INTEGER);
   });
 });
+
+describe("유효성 검사", () => {
+  describe("양수(positive) 여부 판단", () => {});
+});
